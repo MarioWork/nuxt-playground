@@ -8,7 +8,7 @@
       </section>
       <ul>
         <li v-for="{ id, first_name } in users" :key="id">
-          {{ id }} - {{ first_name }}
+          <NuxtLink :to="`/user/${id}`"> {{ id }} - {{ first_name }} </NuxtLink>
         </li>
       </ul>
     </article>
