@@ -11,13 +11,15 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig();
+
 const page = ref(1);
 const users = ref([]);
 
 const getUsers = async (page) => {
-  const { data } = await useFetch(
-    () => `https://reqres.in/api/users?page=${page}`
-  );
+  const { data } = await useFetch(() => `/users?page=${page}`, {
+    baseURL: config.public.baseURL,
+  });
   return data.value.data;
 };
 
