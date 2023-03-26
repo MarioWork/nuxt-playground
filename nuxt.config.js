@@ -1,5 +1,4 @@
 export default defineNuxtConfig({
-  // ...
   runtimeConfig: {
     app: {
       head: {
