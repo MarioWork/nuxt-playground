@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+//Composition API / Reactive / Script Setup Example
 const config = useRuntimeConfig();
 
 const page = ref(1);
