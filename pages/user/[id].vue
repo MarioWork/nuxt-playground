@@ -2,8 +2,11 @@
   <div>{{ id }}</div>
 </template>
 
-<script setup>
-const route = useRoute();
-const id = route.params.id;
-console.log(id);
+<script>
+//Options API Example
+export default {
+  mounted() {
+    console.log(this.$route.params);
+  },
+};
 </script>
