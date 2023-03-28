@@ -3,8 +3,8 @@
     <article>
       <h1>Users</h1>
       <section>
-        <button @click="previousPage">Previous</button>
-        <button @click="nextPage">Next</button>
+        <Button :onClick="previousPage">Previous</Button>
+        <Button :onClick="nextPage">Next</Button>
       </section>
       <ul>
         <li v-for="{ id, first_name } in users" :key="id">
@@ -80,22 +80,6 @@ section {
   display: flex;
   justify-content: center;
   gap: 1em;
-}
-
-button {
-  width: 100px;
-  padding: 0.5em 1.5em;
-  border: none;
-  border-radius: 25px;
-  background-color: blue;
-  color: white;
-  cursor: pointer;
-  transition-duration: 0.5s;
-}
-
-button:hover {
-  opacity: 0.5;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 ul {
