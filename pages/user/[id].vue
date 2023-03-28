@@ -28,8 +28,7 @@ export default {
           message: error.message,
         });
 
-      const response = data?.value;
-      const user = response?.data;
+      const { data: user } = data?.value ?? {};
 
       return { pending: pending.value, user };
     };
