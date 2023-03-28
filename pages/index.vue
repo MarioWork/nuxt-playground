@@ -2,7 +2,7 @@
   <main>
     <article>
       <h1>Users</h1>
-      <section>
+      <section id="actionSection">
         <Button :onClick="previousPage">Previous</Button>
         <Button :onClick="nextPage">Next</Button>
       </section>
@@ -65,25 +65,29 @@ main {
 
 article {
   width: 50vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
-  padding: 2em 1em;
   background-color: #2b3a55;
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
-section {
-  width: 70%;
+#actionSection {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 1em;
 }
 
 #userSection {
+  width: 100%;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  gap: 1em;
 }
 </style>

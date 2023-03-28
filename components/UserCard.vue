@@ -18,12 +18,11 @@ const { user } = defineProps({
 
 <style scoped>
 #main {
-  width: 100%;
+  width: 80%;
   padding: 0.5em;
   display: flex;
   background-color: #f2e5e5;
   border-radius: 25px;
-  padding: 0.5em;
 }
 
 #card {
