@@ -24,8 +24,9 @@ const lastPage = ref(1);
 const users = ref([]);
 
 const getUsers = async (page) => {
-  const { data } = await useFetch(() => `/users?page=${page}`, {
+  const { data } = await useFetch(() => `/users`, {
     baseURL: config.public.baseURL,
+    query: { page },
   });
   users.value = data.value.data;
   lastPage.value = data.value.total_pages;
