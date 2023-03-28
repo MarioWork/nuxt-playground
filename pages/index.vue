@@ -6,11 +6,9 @@
         <Button :onClick="previousPage">Previous</Button>
         <Button :onClick="nextPage">Next</Button>
       </section>
-      <ul>
-        <li v-for="{ id, first_name } in users" :key="id">
-          <NuxtLink :to="`/user/${id}`"> {{ id }} - {{ first_name }} </NuxtLink>
-        </li>
-      </ul>
+      <section id="userSection">
+        <UserCard v-for="user in users" :key="user.id" :user="user" />
+      </section>
     </article>
   </main>
 </template>
@@ -56,6 +54,7 @@ watch(page, async (newPageVal) => {
 
 h1 {
   font-size: 3em;
+  color: white;
 }
 
 main {
@@ -65,44 +64,26 @@ main {
 }
 
 article {
-  width: 500px;
+  width: 50vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
   padding: 2em 1em;
-  background-color: rgb(199, 199, 199);
+  background-color: #2b3a55;
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 section {
-  width: 100%;
+  width: 70%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1em;
 }
 
-ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
+#userSection {
   flex-direction: column;
-  gap: 0.5em;
-}
-
-li {
-  background-color: grey;
-  list-style-type: none;
-  width: 200px;
-  padding: 0.5em 2em;
-  border-radius: 25px;
-  color: white;
-  transition-duration: 0.2s;
-}
-
-li:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  opacity: 0.7;
 }
 </style>
