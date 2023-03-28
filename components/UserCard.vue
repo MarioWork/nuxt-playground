@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <NuxtLink>
+    <NuxtLink :to="`/user/${user.id}`">
       <div id="card">
         <img :src="`${user.avatar}`" alt="Profile Picture" loading="lazy" />
         <h1>{{ user.first_name }}</h1>
@@ -23,10 +23,16 @@ const { user } = defineProps({
   display: flex;
   background-color: #f2e5e5;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 #card {
   display: flex;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 
 img {
