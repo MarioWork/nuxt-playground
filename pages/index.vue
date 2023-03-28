@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-//Composition API / Reactive / Script Setup Example
+//Script setup example
 const config = useRuntimeConfig();
 
 const page = ref(1);
@@ -35,13 +35,15 @@ await getUsers(page.value);
 
 const nextPage = async () => {
   page.value + 1 > lastPage.value ? undefined : page.value++;
-  await getUsers(page.value);
 };
 
 const previousPage = async () => {
   page.value - 1 <= 0 ? undefined : page.value--;
-  await getUsers(page.value);
 };
+
+watch(page, async (newPageVal) => {
+  await getUsers(newPageVal);
+});
 </script>
 
 <style scoped>
