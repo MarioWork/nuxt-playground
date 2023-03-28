@@ -12,10 +12,13 @@ const { onClick } = defineProps({
 
 <style scoped>
 button {
-  width: 100px;
+  width: 250px;
+  height: 45px;
   padding: 0.5em 1.5em;
   border: none;
   border-radius: 25px;
+  font-size: 1em;
+  font-weight: bold;
   background-color: #ce7777;
   color: white;
   cursor: pointer;
