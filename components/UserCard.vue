@@ -2,9 +2,9 @@
   <div id="main">
     <NuxtLink>
       <div id="card">
-        <img :src="`${user.avatar}`" alt="" />
+        <img :src="`${user.avatar}`" alt="Profile Picture" loading="lazy" />
         <h1>{{ user.first_name }}</h1>
-        <h1>{{ user.last_name }}</h1>
+        <h3>{{ user.last_name }}</h3>
       </div>
     </NuxtLink>
   </div>
@@ -32,5 +32,8 @@ const { user } = defineProps({
 
 img {
   border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 </style>
