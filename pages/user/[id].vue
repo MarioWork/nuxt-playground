@@ -1,4 +1,5 @@
 <template>
+  <div v-if="pending">LOADING ...</div>
   <div>{{ user }}</div>
 </template>
 
@@ -17,20 +18,27 @@ export default {
       });
 
     const getUser = async () => {
-      const { data } = await useFetch(() => `/users/${id}`, {
+      const { data, pending, error } = useLazyFetch(() => `/users/${id}`, {
         baseURL: config.baseURL,
       });
 
-      const { data: user } = data.value;
+      if (error.value)
+        throw createError({
+          statusCode: error.statusCode,
+          message: error.message,
+        });
 
-      if (!user)
-        throw createError({ statusCode: 404, message: "User not found" });
+      const response = data?.value;
+      const user = response?.data;
 
-      return user;
+      return { pending: pending.value, user };
     };
 
+    const { pending, user } = await getUser();
+
     return {
-      user: await getUser(),
+      pending,
+      user,
     };
   },
 };
