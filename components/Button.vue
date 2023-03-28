@@ -16,7 +16,7 @@ button {
   padding: 0.5em 1.5em;
   border: none;
   border-radius: 25px;
-  background-color: blue;
+  background-color: #ce7777;
   color: white;
   cursor: pointer;
   transition-duration: 0.5s;
