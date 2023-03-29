@@ -4,7 +4,7 @@
       <h1>Users</h1>
       <section id="actionSection">
         <CustomButton :on-click="previousPage"> Previous </CustomButton>
-        <Button :on-click="nextPage"> Next </Button>
+        <CustomButton :on-click="nextPage"> Next </CustomButton>
       </section>
       <section id="userSection">
         <UserCard v-for="user in users" :key="user.id" :user="user" />
@@ -88,5 +88,7 @@
     align-items: center;
     overflow-y: scroll;
     gap: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
 </style>
