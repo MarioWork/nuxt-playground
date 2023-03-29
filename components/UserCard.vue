@@ -2,7 +2,11 @@
   <div id="main">
     <NuxtLink :to="`/user/${user.id}`">
       <div id="card">
-        <img :src="`${user.avatar}`" alt="Profile Picture" loading="lazy" />
+        <img
+          :src="`${user.avatar}`"
+          alt="Profile Picture"
+          loading="lazy"
+        >
         <h1>{{ user.first_name }}</h1>
         <h3>{{ user.last_name }}</h3>
       </div>
@@ -11,9 +15,12 @@
 </template>
 
 <script setup>
-const { user } = defineProps({
+const props = defineProps({
   user: { type: Object, required: true },
 });
+
+const { user } = toRefs(props);
+
 </script>
 
 <style scoped>
