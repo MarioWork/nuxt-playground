@@ -5,9 +5,14 @@
 </template>
 
 <script setup>
-const { onClick } = defineProps({
-  onClick: Function,
+const props = defineProps({
+  onClick: {
+    type: Function,
+    default: () => {}
+  },
 });
+
+const { onClick } = toRefs(props);
 </script>
 
 <style scoped>
