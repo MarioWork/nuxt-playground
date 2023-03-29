@@ -1,8 +1,6 @@
 <template>
   <main>
-    <div v-if="pending">
-      LOADING ...
-    </div>
+    <div v-if="pending">LOADING ...</div>
     <div>
       {{ user }}
     </div>
@@ -10,41 +8,41 @@
 </template>
 
 <script>
-//No script setup example
-export default {
-  async setup() {
-    const config = useRuntimeConfig();
+  //No script setup example
+  export default {
+    async setup() {
+      const config = useRuntimeConfig();
 
-    const { id } = useRoute().params;
+      const { id } = useRoute().params;
 
-    if (isNaN(id))
-      throw createError({
-        statusCode: 404,
-        message: "Id needs to be a number",
-      });
-
-    const getUser = async () => {
-      const { data, pending, error } = useLazyFetch(() => `/users/${id}`, {
-        baseURL: config.baseURL,
-      });
-
-      if (error.value)
+      if (isNaN(id))
         throw createError({
-          statusCode: error.statusCode,
-          message: error.message,
+          statusCode: 404,
+          message: 'Id needs to be a number',
         });
 
-      const { data: user } = data?.value ?? {};
+      const getUser = async () => {
+        const { data, pending, error } = useLazyFetch(() => `/users/${id}`, {
+          baseURL: config.baseURL,
+        });
 
-      return { pending: pending.value, user };
-    };
+        if (error.value)
+          throw createError({
+            statusCode: error.statusCode,
+            message: error.message,
+          });
 
-    const { pending, user } = await getUser();
+        const { data: user } = data?.value ?? {};
 
-    return {
-      pending,
-      user,
-    };
-  },
-};
+        return { pending: pending.value, user };
+      };
+
+      const { pending, user } = await getUser();
+
+      return {
+        pending,
+        user,
+      };
+    },
+  };
 </script>

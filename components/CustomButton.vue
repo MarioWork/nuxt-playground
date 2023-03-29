@@ -8,7 +8,7 @@
 const props = defineProps({
   onClick: {
     type: Function,
-    default: () => {}
+    default: () => {},
   },
 });
 
