@@ -1,7 +1,7 @@
 <template>
   <main>
     <div v-if="pending">LOADING ...</div>
-    <div>
+    <div v-else>
       {{ user }}
     </div>
   </main>
@@ -13,17 +13,22 @@
     async setup() {
       const config = useRuntimeConfig();
 
-      const { id } = useRoute().params;
+      const params = useRoute().params;
 
-      if (isNaN(id))
+      if (isNaN(params.id))
         throw createError({
           statusCode: 404,
           message: 'Id needs to be a number',
         });
 
       const getUser = async () => {
-        const { data, pending, error } = useLazyFetch(() => `/users/${id}`, {
+        const {
+          data: user,
+          pending,
+          error,
+        } = useLazyFetch(() => `/users/${params.id}`, {
           baseURL: config.baseURL,
+          key: params.id,
         });
 
         if (error.value)
@@ -32,9 +37,7 @@
             message: error.message,
           });
 
-        const { data: user } = data?.value ?? {};
-
-        return { pending: pending.value, user };
+        return { pending, user };
       };
 
       const { pending, user } = await getUser();
