@@ -3,11 +3,19 @@
     <article>
       <h1>Users</h1>
       <section id="actionSection">
-        <Button :onClick="previousPage">Previous</Button>
-        <Button :onClick="nextPage">Next</Button>
+        <CustomButton :on-click="previousPage">
+          Previous
+        </CustomButton>
+        <Button :on-click="nextPage">
+          Next
+        </Button>
       </section>
       <section id="userSection">
-        <UserCard v-for="user in users" :key="user.id" :user="user" />
+        <UserCard
+          v-for="user in users"
+          :key="user.id"
+          :user="user"
+        />
       </section>
     </article>
   </main>
