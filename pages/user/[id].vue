@@ -1,6 +1,12 @@
 <template>
-  <div v-if="pending">LOADING ...</div>
-  <div>{{ user }}</div>
+  <main>
+    <div v-if="pending">
+      LOADING ...
+    </div>
+    <div>
+      {{ user }}
+    </div>
+  </main>
 </template>
 
 <script>
