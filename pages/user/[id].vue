@@ -1,12 +1,9 @@
 <template>
   <main>
-    <div v-if="pending">LOADING ...</div>
-    <div v-else>
-      <nuxt-link to="/">
-        <i class="material-icons">chevron_left</i>
-      </nuxt-link>
-      {{ user }}
-    </div>
+    <article>
+      <h1>{{ user.data.first_name }}</h1>
+      <section></section>
+    </article>
   </main>
 </template>
 
@@ -54,7 +51,33 @@
 </script>
 
 <style scoped>
-  i {
-    color: black;
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+  }
+
+  h1 {
+    color: white;
+  }
+
+  article {
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    background-color: #2b3a55;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 </style>
