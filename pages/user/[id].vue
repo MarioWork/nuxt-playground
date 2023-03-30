@@ -2,6 +2,9 @@
   <main>
     <div v-if="pending">LOADING ...</div>
     <div v-else>
+      <nuxt-link to="/">
+        <i class="material-icons">chevron_left</i>
+      </nuxt-link>
       {{ user }}
     </div>
   </main>
@@ -49,3 +52,9 @@
     },
   };
 </script>
+
+<style scoped>
+  i {
+    color: black;
+  }
+</style>
