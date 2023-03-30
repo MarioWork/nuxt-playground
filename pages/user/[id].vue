@@ -3,7 +3,11 @@
   <div v-else id="content">
     <article>
       <header>
-        <i class="material-icons">chevron_left</i>
+        <NuxtLink to="/">
+          <button>
+            <i class="material-icons">chevron_left</i>
+          </button>
+        </NuxtLink>
       </header>
       <main>
         <img :src="user.data.avatar" alt="Profile Picture" loading="lazy" />
@@ -87,6 +91,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding-top: 1.5em;
+    padding-left: 2em;
   }
 
   main {
