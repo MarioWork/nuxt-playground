@@ -13,9 +13,9 @@
     async setup() {
       const config = useRuntimeConfig();
 
-      const params = useRoute().params;
+      const { id } = useRoute().params;
 
-      if (isNaN(params.id))
+      if (isNaN(id))
         throw createError({
           statusCode: 404,
           message: 'Id needs to be a number',
@@ -26,9 +26,9 @@
           data: user,
           pending,
           error,
-        } = useLazyFetch(() => `/users/${params.id}`, {
+        } = useLazyFetch(() => `/users/${id}`, {
           baseURL: config.baseURL,
-          key: params.id,
+          key: id,
         });
 
         if (error.value)
