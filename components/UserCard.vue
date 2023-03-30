@@ -9,6 +9,7 @@
           <label>Last Name</label>
           <h2>{{ user.last_name }}</h2>
         </section>
+        <i class="material-icons">chevron_right</i>
       </main>
     </NuxtLink>
   </article>
@@ -74,5 +75,19 @@
 
   h1 {
     font-size: 2em;
+  }
+
+  i {
+    margin-left: auto;
+    margin-right: 1em;
+    color: #ce7777;
+    cursor: pointer;
+    font-size: 3em;
+    transition-duration: 0.2s;
+  }
+
+  i:hover {
+    opacity: 0.5;
+    scale: 1.2;
   }
 </style>
