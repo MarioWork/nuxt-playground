@@ -1,11 +1,18 @@
 <template>
   <span v-if="pending">loading...</span>
-  <main v-else>
+  <div v-else id="content">
     <article>
-      <h1>{{ user.data.first_name }}</h1>
-      <section></section>
+      <header>
+        <i class="material-icons">chevron_left</i>
+      </header>
+      <main>
+        <img :src="user.data.avatar" alt="Profile Picture" loading="lazy" />
+        <h1>{{ user.data.first_name }}</h1>
+        <h1>{{ user.data.last_name }}</h1>
+        <h2>{{ user.data.email }}</h2>
+      </main>
     </article>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -28,8 +35,8 @@
           pending,
           error,
         } = useLazyFetch(() => `/users/${id}`, {
-          baseURL: config.baseURL,
           key: id,
+          baseURL: config.baseURL,
         });
 
         if (error.value)
@@ -58,27 +65,53 @@
     padding: 0;
   }
 
-  main {
+  #content {
     display: flex;
     justify-content: center;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 5em;
+    background-color: #2b3a55;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  header {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 1.5em;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding: 1.5em 3em 3em 3em;
   }
 
   h1 {
     color: white;
+    font-size: 3em;
+    text-align: center;
   }
 
-  article {
-    width: 50vw;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    background-color: #2b3a55;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding-top: 1em;
-    padding-bottom: 1em;
+  h2 {
+    color: white;
+  }
+
+  img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 </style>
