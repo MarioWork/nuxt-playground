@@ -1,5 +1,6 @@
 <template>
-  <main>
+  <span v-if="pending">loading...</span>
+  <main v-else>
     <article>
       <h1>{{ user.data.first_name }}</h1>
       <section></section>
