@@ -45,12 +45,6 @@
 </script>
 
 <style scoped>
-  * {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
   h1 {
     font-size: 3em;
     color: white;
@@ -77,6 +71,7 @@
   }
 
   #actionSection {
+    width: 50%;
     display: flex;
     gap: 1em;
   }

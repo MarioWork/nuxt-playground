@@ -63,12 +63,6 @@
 </script>
 
 <style scoped>
-  * {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
   #content {
     display: flex;
     justify-content: center;
@@ -92,6 +86,25 @@
     justify-content: flex-start;
     padding-top: 1.5em;
     padding-left: 2em;
+  }
+
+  button {
+    position: absolute;
+    top: 7em;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+
+  button:hover {
+    opacity: 0.5;
+    scale: 1.1;
+  }
+
+  i {
+    font-size: 5em;
   }
 
   main {
