@@ -17,7 +17,7 @@
 
 <style scoped>
   button {
-    width: 250px;
+    width: 100%;
     height: 45px;
     padding: 0.5em 1.5em;
     border: none;
