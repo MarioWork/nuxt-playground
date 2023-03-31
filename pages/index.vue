@@ -15,33 +15,7 @@
 
 <script setup>
   //Script setup example
-  const config = useRuntimeConfig();
-  const page = ref(1);
-  const lastPage = ref(1);
-  const users = ref([]);
-
-  const getUsers = async (page) => {
-    const { data } = await useFetch(() => `/users`, {
-      baseURL: config.public.baseURL,
-      query: { page },
-    });
-    users.value = data.value.data;
-    lastPage.value = data.value.total_pages;
-  };
-
-  await getUsers(page.value);
-
-  const nextPage = async () => {
-    page.value + 1 > lastPage.value ? undefined : page.value++;
-  };
-
-  const previousPage = async () => {
-    page.value - 1 <= 0 ? undefined : page.value--;
-  };
-
-  watch(page, async (newPageVal) => {
-    await getUsers(newPageVal);
-  });
+  const { users, nextPage, previousPage } = await useUsers();
 </script>
 
 <style scoped>
