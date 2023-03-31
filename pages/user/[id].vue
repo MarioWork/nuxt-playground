@@ -1,5 +1,5 @@
 <template>
-  <span v-if="pending">loading...</span>
+  <Loading v-if="pending" />
   <div v-else id="content">
     <article>
       <header>
@@ -9,12 +9,12 @@
           </button>
         </NuxtLink>
       </header>
-      <main>
+      <div id="user-data">
         <img :src="user.data.avatar" alt="Profile Picture" loading="lazy" />
         <h1>{{ user.data.first_name }}</h1>
         <h1>{{ user.data.last_name }}</h1>
         <h2>{{ user.data.email }}</h2>
-      </main>
+      </div>
     </article>
   </div>
 </template>
@@ -107,7 +107,7 @@
     font-size: 5em;
   }
 
-  main {
+  #user-data {
     display: flex;
     flex-direction: column;
     align-items: center;
