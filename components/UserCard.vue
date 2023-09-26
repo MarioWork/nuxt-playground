@@ -24,11 +24,6 @@
 </script>
 
 <style scoped>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
   #main {
     width: 80%;
     padding: 0.5em;
